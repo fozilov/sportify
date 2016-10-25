@@ -3,8 +3,13 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
+<<<<<<< HEAD
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
+=======
+# Use postgresql as the database for Active Record
+gem 'pg', '~> 0.18'
+>>>>>>> 2b677ee8f946ad217ccde43b6c42d06bb746cf3d
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
@@ -29,10 +34,18 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+<<<<<<< HEAD
+=======
+
+>>>>>>> 2b677ee8f946ad217ccde43b6c42d06bb746cf3d
 gem 'feedjira'
 gem 'twitter-bootstrap-rails'
 
 group :development, :test do
+<<<<<<< HEAD
+=======
+  gem 'sqlite3', '1.3.11'
+>>>>>>> 2b677ee8f946ad217ccde43b6c42d06bb746cf3d
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
 end
