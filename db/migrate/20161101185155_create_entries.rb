@@ -7,6 +7,7 @@ class CreateEntries < ActiveRecord::Migration[5.0]
       t.string :url
       t.string :author
       t.integer :feed_id
+      t.string :ogp_image
 
       t.timestamps
     end
