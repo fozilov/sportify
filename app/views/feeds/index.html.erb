@@ -2,12 +2,16 @@
 
 <h1>Feeds</h1>
 
-<table>
+<button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored "><%= link_to "add", new_feed_path, class: "material-icons" %></button>
+<br>
+<br>
+
+<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Url</th>
-      <th>Description</th>
+      <th class="mdl-data-table__cell--non-numeric">Name</th>
+      <th class="mdl-data-table__cell--non-numeric">Url</th>
+      <th class="mdl-data-table__cell--non-numeric">Description</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -15,17 +19,15 @@
   <tbody>
     <% @feeds.each do |feed| %>
       <tr>
-        <td><%= feed.name %></td>
-        <td><%= feed.url %></td>
-        <td><%= feed.description %></td>
-        <td><%= link_to 'Show', feed %></td>
-        <td><%= link_to 'Edit', edit_feed_path(feed) %></td>
-        <td><%= link_to 'Destroy', feed, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class="mdl-data-table__cell--non-numeric"><%= link_to feed.name, feed_path(feed) %></td>
+        <td class="mdl-data-table__cell--non-numeric"><%= feed.url %></td>
+        <td class="mdl-data-table__cell--non-numeric"><%= feed.description %></td>
+        <td><%= link_to 'Show', feed, class: "mdl-button mdl-button--raised mdl-button--colored" %></td>
+        <td><%= link_to 'Edit', edit_feed_path(feed), class: "mdl-button mdl-button--raised" %></td>
+        <td><%= link_to 'Destroy', feed, method: :delete, data: { confirm: 'Are you sure?' }, class: "mdl-button mdl-button--raised"  %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Feed', new_feed_path %>

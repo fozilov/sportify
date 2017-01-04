@@ -1,9 +1,16 @@
 <div class="container">
-  <% @entries.each do |entry| %>
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <%= link_to entry.title, feed_entry_path(entry.feed, entry) %> - <i> published <%= time_ago_in_words(entry.published) %> ago.</i>
+
+  <div class="demo-list-action mdl-list">
+    <% @entries.each do |entry| %>
+      <div class="mdl-list__item">
+        <span class="mdl-list__item-primary-content">
+          <% if entry.ogp_image.present? %>
+            <%= image_tag entry.ogp_image, style: "max-width: 100px;", class: "material-icons mdl-list__item-avatar"%>
+          <% end %>
+          <span><%= link_to entry.title, feed_entry_path(entry.feed, entry)%> - <i> published <%= time_ago_in_words(entry.published) %> ago.</i></span>
+        </span>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
+
 </div>

@@ -2,6 +2,9 @@
   <h3><%= link_to @entry.title, @entry.url %></h3>
   <i>published on <%= @entry.published %> by <%= @entry.author %></i>
   <p>
+    <% if @entry.ogp_image.present? %>
+      <%= image_tag @entry.ogp_image, style: "max-width: 200px;"%>
+    <% end %>
     <%= @entry.content.to_s.html_safe %>
   </p>
 </div>
