@@ -22,7 +22,8 @@
         <td class="mdl-data-table__cell--non-numeric"><%= link_to feed.name, feed_path(feed) %></td>
         <td class="mdl-data-table__cell--non-numeric"><%= feed.url %></td>
         <td class="mdl-data-table__cell--non-numeric"><%= feed.description %></td>
-        <td><%= link_to 'Show', feed, class: "mdl-button mdl-button--raised mdl-button--colored" %></td>
+        <td><%= link_to 'Show Entries', feed_entries_path(feed), class: "mdl-button mdl-button--raised mdl-button--colored" %></td>
+
         <td><%= link_to 'Edit', edit_feed_path(feed), class: "mdl-button mdl-button--raised" %></td>
         <td><%= link_to 'Destroy', feed, method: :delete, data: { confirm: 'Are you sure?' }, class: "mdl-button mdl-button--raised"  %></td>
       </tr>
