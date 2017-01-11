@@ -7,7 +7,11 @@
           <% if entry.ogp_image.present? %>
             <%= image_tag entry.ogp_image, style: "max-width: 100px;", class: "material-icons mdl-list__item-avatar"%>
           <% end %>
-          <span><%= link_to entry.title, feed_entry_path(entry.feed, entry)%> - <i> published <%= time_ago_in_words(entry.published) %> ago.</i></span>
+          <% if entry.content.present? %>
+            <span><%= link_to entry.title, feed_entry_path(entry.feed, entry)%> - <i> published <%= time_ago_in_words(entry.published) %> ago.</i></span>
+          <% else %>
+            <span><%= link_to entry.title, entry.url%> - <i> published <%= time_ago_in_words(entry.published) %> ago.</i></span>
+          <% end %>  
         </span>
       </div>
     <% end %>
