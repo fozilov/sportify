@@ -3,7 +3,11 @@ class EntriesController < ApplicationController
   before_action :set_feed, :if => proc {params[:feed_id].present?}, only: :index
 
   def index
-    @entries = @feed.entries.order('published desc')
+    if params[:q]
+      @entries = Entry.ransack(params[:q]).result(distinct: true)
+    else
+      @entries = @feed.entries.order('published desc')
+    end
   end
 
   def show

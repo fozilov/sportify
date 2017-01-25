@@ -4,6 +4,7 @@ class FeedsController < ApplicationController
   # GET /feeds
   # GET /feeds.json
   def index
+    @q = Entry.ransack
     @feeds = Feed.all
   end
 

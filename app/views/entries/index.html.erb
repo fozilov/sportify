@@ -1,5 +1,12 @@
 <div class="container">
 
+  <%= link_to feeds_path, :class => "mdl-chip mdl-chip--contact" do %>
+    <span>
+      <span class="mdl-chip__contact mdl-color--teal">🙆</span>
+      <span class="mdl-chip__text">Sportify</span>
+    </span>
+  <% end%>
+
   <div class="demo-list-action mdl-list">
     <% @entries.each do |entry| %>
       <div class="mdl-list__item">
@@ -7,7 +14,11 @@
           <% if entry.ogp_image.present? %>
             <%= image_tag entry.ogp_image, style: "max-width: 100px;", class: "material-icons mdl-list__item-avatar"%>
           <% end %>
-          <span><%= link_to entry.title, feed_entry_path(entry.feed, entry)%> - <i> published <%= time_ago_in_words(entry.published) %> ago.</i></span>
+          <% if entry.content.present? %>
+            <span><%= link_to entry.title, feed_entry_path(entry.feed, entry)%> - <i> published <%= time_ago_in_words(entry.published) %> ago.</i></span>
+          <% else %>
+            <span><%= link_to entry.title, entry.url%> - <i> published <%= time_ago_in_words(entry.published) %> ago.</i></span>
+          <% end %>
         </span>
       </div>
     <% end %>
