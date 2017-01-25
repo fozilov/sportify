@@ -1,6 +1,6 @@
 class EntriesController < ApplicationController
 
-  before_action :set_feed, only: [:index, :show]
+  before_action :set_feed, :if => proc {params[:feed_id].present?}, only: :index
 
   def index
     @entries = @feed.entries.order('published desc')
